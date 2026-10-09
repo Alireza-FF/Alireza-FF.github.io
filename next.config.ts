@@ -1,20 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  experimental: {
-    agentFeedback: true,
+  output: 'export',
+  images: {
+    unoptimized: true,
   },
-  cacheComponents: true,
-  partialPrefetching: true,
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
-      },
-    },
-  },
+  trailingSlash: true,
+  // چون دامنه شخصی داری، basePath و assetPrefix خالی می‌مونن
+  basePath: '',
+  assetPrefix: '',
+  // experimental و turbopack رو کاملاً حذف کن
 };
 
 export default nextConfig;
