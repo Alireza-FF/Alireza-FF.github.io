@@ -1,0 +1,570 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #f7f8fc;
+  --surface: #ffffff;
+  --text: #1a1a2e;
+  --muted: #6b7280;
+  --primary: #2563eb;
+  --border: #e5e7eb;
+}
+
+.dark {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --primary: #60a5fa;
+  --border: #334155;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Vazirmatn', Tahoma, sans-serif;
+  line-height: 1.9;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ===== Container استاندارد ===== */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* ===== فاصله عمودی یکنواخت سکشن‌ها ===== */
+.section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* ===== کارت پایه ===== */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.1);
+}
+
+/* ===== بج / چیپ ===== */
+.chip {
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #dbeafe;
+}
+
+.dark .chip {
+  background: #172554;
+  color: #60a5fa;
+  border-color: #1e3a8a;
+}
+
+/* ===== بج‌های ساده ===== */
+.skill-badge {
+  display: inline-block;
+  font-size: 0.85rem;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+/* ===== آواتار ===== */
+.avatar {
+  width: 16rem;
+  height: 16rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb, #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 5rem;
+  font-weight: 800;
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.25);
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .avatar {
+    width: 12rem;
+    height: 12rem;
+    font-size: 3.5rem;
+  }
+}
+
+/* ===== تایم‌لاین ===== */
+.timeline {
+  position: relative;
+  max-width: 42rem;
+  margin: 0 auto;
+  padding-right: 2rem;
+  border-right: 2px solid var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  right: -2.55rem;
+  top: 0.6rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 4px solid var(--bg);
+}
+
+/* ===== فرم ===== */
+.form-input {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  padding: 0.85rem 1rem;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.form-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== دکمه‌ها ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 0.9rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  gap: 1.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 72px;
+    right: 0;
+    left: 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem;
+    gap: 1.25rem;
+  }
+}
+
+/* ===== Footer ===== */
+.footer {
+  border-top: 1px solid var(--border);
+  margin-top: 5rem;
+  padding: 3rem 0 2rem;
+  background: var(--surface);
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.social-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  color: var(--muted);
+}
+
+.social-icon:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-3px);
+}
+
+/* ===== عنوان سکشن ===== */
+.section-title {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.section-title h1,
+.section-title h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.section-title p {
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+/* ===== گرید کارت‌ها ===== */
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .grid-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Hero ===== */
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 2.5rem 0;
+  }
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.hero-title span {
+  color: var(--primary);
+}
+
+.hero-desc {
+  color: var(--muted);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .hero-actions {
+    justify-content: center;
+  }
+  .hero-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ===== CTA Box ===== */
+.cta-box {
+  background: linear-gradient(135deg, #2563eb, #8b5cf6);
+  border-radius: 1.5rem;
+  padding: 3.5rem 2rem;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2);
+}
+
+.cta-box h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.cta-box p {
+  font-size: 1.05rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #ffffff;
+  color: #2563eb;
+  padding: 0.9rem 2rem;
+  border-radius: 0.9rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+  border: 2px solid #ffffff;
+}
+
+.cta-btn:hover {
+  background: transparent;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ===== About page ===== */
+.about-bio {
+  max-width: 48rem;
+  margin: 0 auto 4rem;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 56rem;
+  margin: 0 auto 5rem;
+}
+
+@media (max-width: 640px) {
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  padding: 1.75rem 1rem;
+  text-align: center;
+  transition: all 0.25s ease;
+}
+
+.stat-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-4px);
+}
+
+.stat-value {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ===== Timeline ===== */
+.timeline-wrapper {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.timeline-heading {
+  text-align: center;
+  font-size: clamp(1.4rem, 3vw, 1.75rem);
+  font-weight: 800;
+  margin-bottom: 2.5rem;
+}
+
+.timeline {
+  position: relative;
+  padding-right: 2rem;
+  border-right: 2px solid var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 2.5rem;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  right: -2.6rem;
+  top: 0.55rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 4px solid var(--bg);
+  box-sizing: content-box;
+}
+
+.timeline-date {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 0.35rem;
+}
+
+.timeline-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.timeline-desc {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+/* ===== Hero spacing fix ===== */
+.hero {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+}
